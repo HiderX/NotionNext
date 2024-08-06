@@ -62,6 +62,11 @@ const Style = () => {
           transform: translateX(-50%);
         }
       }
+
+      #bannerGroup,
+      #hero > div.px-1\.5.h-full{
+        display:none;
+      }
     `}</style>
   )
 }
