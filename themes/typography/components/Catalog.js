@@ -236,7 +236,7 @@ const Catalog = ({ post }) => {
                 }}
                 className={`catalog-item block py-1 border-l-2 transition-all duration-200 ease-out
                   ${isActive
-                    ? 'border-[var(--primary-color)] dark:border-gray-300 text-[var(--primary-color)] dark:text-white font-medium'
+                    ? 'active border-[var(--primary-color)] dark:border-gray-300 text-[var(--primary-color)] dark:text-white font-medium'
                     : 'border-transparent text-gray-500 dark:text-gray-500 hover:text-[var(--primary-color)] dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'
                   }`}
                 style={{ paddingLeft: `${8 + tocItem.indentLevel * 8}px` }}>

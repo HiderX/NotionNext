@@ -69,6 +69,57 @@ const Style = () => {
           'Source Han Serif SC', 'Source Han Serif TC', serif;
       }
 
+      /* 深色模式下网站标题使用终端绿色 */
+      .dark #theme-typography #blog-name,
+      .dark #theme-typography #blog-name-en {
+        color: #00FF00;
+        text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+      }
+
+      /* 深色模式下标题区域左侧竖线使用终端绿色 */
+      .dark #theme-typography header {
+        border-color: #00FF00 !important;
+        position: relative;
+      }
+
+      /* 终端光标闪烁动画 */
+      @keyframes terminal-cursor-blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+      }
+
+      /* 深色模式下标题区域hover显示闪烁光标 */
+      .dark #theme-typography header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        width: 0.2em;
+        height: 1em;
+        background-color: #00FF00;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      .dark #theme-typography header:hover::after {
+        opacity: 1;
+        animation: terminal-cursor-blink 1s step-end infinite;
+        box-shadow: 0 0 8px rgba(0, 255, 0, 0.8);
+      }
+
+      /* 移除原有的hover背景色变化 */
+      .dark #theme-typography header:hover {
+        background-color: transparent !important;
+      }
+
+      /* 深色模式下目录当前项使用终端绿色 */
+      .dark #theme-typography .catalog-item.active,
+      .dark #theme-typography .catalog-item-active {
+        color: #00FF00 !important;
+        border-color: #00FF00 !important;
+        text-shadow: 0 0 3px rgba(0, 255, 0, 0.4);
+      }
+
       #theme-typography .blog-item-title {
         color: #276077;
       }
