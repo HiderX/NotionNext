@@ -19,5 +19,8 @@ const CONFIG = {
   TYPOGRAPHY_TOC_MAX_DEPTH: parseInt(process.env.NEXT_PUBLIC_TYPOGRAPHY_TOC_MAX_DEPTH) || 3, // 目录最大层级，支持1-6级
   TYPOGRAPHY_TOC_COLLAPSE_ON_SCROLL: process.env.NEXT_PUBLIC_TYPOGRAPHY_TOC_COLLAPSE_ON_SCROLL !== 'false', // 滚动时折叠非当前位置的子目录，默认关闭
   TYPOGRAPHY_TOC_SCROLL_BEHAVIOR: process.env.NEXT_PUBLIC_TYPOGRAPHY_TOC_SCROLL_BEHAVIOR || 'instant', // 滚动行为：'smooth' 或 'instant'
+
+  // 副标题配置
+  TYPOGRAPHY_SUBTITLE_DARK_ONLY: process.env.NEXT_PUBLIC_TYPOGRAPHY_SUBTITLE_DARK_ONLY !== 'true', // 副标题仅在深色模式下显示，默认开启
 }
 export default CONFIG

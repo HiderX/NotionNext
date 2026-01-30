@@ -17,6 +17,7 @@ export default function NavBar(props) {
   const { post } = props
   const hasToc = post?.toc && post.toc.length > 0
   const tocEnable = siteConfig('TYPOGRAPHY_TOC_ENABLE', true, CONFIG)
+  const subtitleDarkOnly = siteConfig('TYPOGRAPHY_SUBTITLE_DARK_ONLY', false, CONFIG)
 
   return (
     <div className='flex flex-col justify-between md:mt-20 md:h-[70vh]'>
@@ -26,7 +27,9 @@ export default function NavBar(props) {
             <div className='font-bold text-4xl text-center' id='blog-name'>
               {siteConfig('TYPOGRAPHY_BLOG_NAME')}
             </div>
-            <div className='font-bold text-xl text-center' id='blog-name-en'>
+            <div
+              className={`font-bold text-xl text-center ${subtitleDarkOnly ? 'hidden dark:block' : ''}`}
+              id='blog-name-en'>
               {siteConfig('TYPOGRAPHY_BLOG_NAME_EN')}
             </div>
           </div>
