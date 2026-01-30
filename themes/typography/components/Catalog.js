@@ -240,7 +240,7 @@ const Catalog = ({ post }) => {
                     : 'border-transparent text-gray-500 dark:text-gray-500 hover:text-[var(--primary-color)] dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'
                   }`}
                 style={{ paddingLeft: `${8 + tocItem.indentLevel * 8}px` }}>
-                <span className='block truncate'>
+                <span className='block break-words'>
                   {tocItem.text}
                 </span>
               </a>

@@ -106,7 +106,7 @@ const LayoutBase = props => {
           </div>
 
           {/* 右侧导航和页脚 - 固定不滚动 */}
-          <div className='hidden md:flex md:flex-col md:flex-shrink-0 md:h-[100vh] sticky top-20'>
+          <div className='hidden md:flex md:flex-col md:flex-shrink-0 md:h-[100vh] sticky top-20 md:max-w-[200px] md:min-w-0 overflow-hidden'>
             <NavBar {...props} />
             <Footer {...props} />
           </div>
