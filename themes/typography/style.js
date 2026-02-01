@@ -89,29 +89,25 @@ const Style = () => {
       }
 
       /* 深色模式下网站标题区域hover显示闪烁光标 */
-      .dark #theme-typography #site-header::after {
-        content: '';
-        position: absolute;
-        bottom: 1rem; /* 与 pb-8 对齐 */
-        left: 20px;
-        width: 0.2em;
-        height: 1em;
-        background-color: #00FF00;
-        opacity: 0;
-        transition: opacity 0.2s;
-      }
+      @media (min-width: 768px) {
+        .dark #theme-typography #site-header::after {
+          content: '';
+          position: absolute;
+          bottom: 1rem; /* 与 pb-8 对齐 */
+          left: 20px;
+          width: 0.2em;
+          height: 1em;
+          background-color: #00FF00;
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
 
-      .dark #theme-typography #site-header:hover::after {
-        opacity: 1;
-        animation: terminal-cursor-blink 1s step-end infinite;
-        box-shadow: 0 0 8px rgba(0, 255, 0, 0.8);
-      }
+        .dark #theme-typography #site-header:hover::after {
+          opacity: 1;
+          animation: terminal-cursor-blink 1s step-end infinite;
+          box-shadow: 0 0 8px rgba(0, 255, 0, 0.8);
+        }
 
-      /* 深色模式下取消hover浮动效果和背景色变化 */
-      .dark #theme-typography #site-header:hover {
-        background-color: transparent !important;
-        padding-top: 0 !important;
-        padding-bottom: 2rem !important;
       }
 
       /* 深色模式下目录当前项使用终端绿色 */
