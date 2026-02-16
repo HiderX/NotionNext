@@ -1,6 +1,8 @@
 // import '@/styles/animate.css' // @see https://animate.style/
 import '@/styles/globals.css'
 import '@/styles/utility-patterns.css'
+import '@/styles/claude-readme.css'
+import 'highlight.js/styles/github-dark.css'
 
 // core styles shared by all of react-notion-x (required)
 import '@/styles/notion.css' //  重写部分notion样式
@@ -10,7 +12,7 @@ import useAdjustStyle from '@/hooks/useAdjustStyle'
 import { GlobalContextProvider } from '@/lib/global'
 import { getBaseLayoutByTheme } from '@/themes/theme'
 import { useRouter } from 'next/router'
-import { useCallback, useMemo } from 'react'
+import { useMemo } from 'react'
 import { getQueryParam } from '../lib/utils'
 
 // 各种扩展插件 这个要阻塞引入
@@ -40,24 +42,19 @@ const MyApp = ({ Component, pageProps }) => {
       pageProps?.NOTION_CONFIG?.THEME ||
       BLOG.THEME
     )
-  }, [route])
+  }, [route.asPath, pageProps?.NOTION_CONFIG?.THEME])
 
-  // 整体布局
-  const GLayout = useCallback(
-    props => {
-      const Layout = getBaseLayoutByTheme(theme)
-      return <Layout {...props} />
-    },
-    [theme]
-  )
+  // 整体布局 — 用 useMemo 缓存 Layout 组件引用，
+  // 相同 theme 下始终返回同一个组件，避免 React 因组件类型变化而 remount 整棵子树
+  const Layout = useMemo(() => getBaseLayoutByTheme(theme), [theme])
 
   const enableClerk = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
   const content = (
     <GlobalContextProvider {...pageProps}>
-      <GLayout {...pageProps}>
+      <Layout {...pageProps}>
         <SEO {...pageProps} />
         <Component {...pageProps} />
-      </GLayout>
+      </Layout>
       <ExternalPlugins {...pageProps} />
     </GlobalContextProvider>
   )
